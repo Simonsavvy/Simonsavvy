@@ -1,6 +1,6 @@
 # TikTok post captions (copy-paste)
 
-When posting each one: turn ON TikTok's "AI-generated content" label (More options → AI-generated content), and add a sound from TikTok's library.
+When posting each one: turn ON TikTok's "AI-generated content" label (More options → AI-generated content). The videos already include a voiceover and original background music.
 
 ## Ad 1 — simovet_ad1_farmers_licensed.mp4
 Every vet on SimoVet has their KVB licence checked by a person before farmers can book them. Pay by M-Pesa. 🐄 simonetvetcare.co.ke

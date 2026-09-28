@@ -58,15 +58,17 @@ def ad(name,hsrc,hcrop,hst,hook,segs,end):
         "-map","[v]","-map",f"{n+1}:a","-shortest","-c:v","libx264","-profile:v","high","-crf","18","-preset","medium",
         "-c:a","aac","-b:a","128k","-movflags","+faststart",f"../{name}"],check=True); print("ok",name)
 C3=""; C4="crop=405:720:437:0,"
-ad("simovet_ad1_farmers_licensed.mp4",V3,C3,0,"how do you know your vet is actually licensed?",
-   [("S",3.5,2.0,"every vet's KVB licence is checked by a person",120),
-    ("V",4.0,5.0,"book and pay with m-pesa",120),
-    ("V",32.8,34.9,"verified vets near you, nearest first",170)],
-   ("Book a KVB-verified vet. Pay by M-Pesa.","Every vet's licence is checked by a person."))
-ad("simovet_ad2_vets_paid_first.mp4",V4,C4,6,"the farmer pays before you even see the request",
-   [("V",4.0,5.0,"farmers pay by m-pesa when they book",120),
-    ("S",8.9,3.2,"85% paid to your m-pesa after each confirmed visit",170)],
-   ("Vets: free to join.","Set your own prices, hours and service area."))
-ad("simovet_ad3_farmers_prices.mp4",V3,C3,5,"vet prices shown before you book. finally.",
-   [("V",39.5,44.8,"every vet card shows services + prices",170)],
-   ("See each vet's services and prices before you book.","Pay by M-Pesa. Get a full visit record."))
+if __name__=="__main__":
+    ad("simovet_ad1_farmers_licensed.mp4",V3,C3,0,"how do you know your vet is actually licensed?",
+       [("S",3.5,2.0,"every vet's KVB licence is checked by a person",120),
+        ("V",4.0,5.0,"book and pay with m-pesa",120),
+        ("V",32.8,34.9,"verified vets near you, nearest first",170)],
+       ("Book a KVB-verified vet. Pay by M-Pesa.","Every vet's licence is checked by a person."))
+    ad("simovet_ad2_vets_paid_first.mp4",V4,C4,6,"the farmer pays before you even see the request",
+       [("V",4.0,5.0,"farmers pay by m-pesa when they book",120),
+        ("S",8.9,3.2,"85% paid to your m-pesa after each confirmed visit",170)],
+       ("Vets: free to join.","Set your own prices, hours and service area."))
+    ad("simovet_ad3_farmers_prices.mp4",V3,C3,5,"vet prices shown before you book. finally.",
+       [("V",39.5,44.8,"every vet card shows services + prices",170)],
+       ("See each vet's services and prices before you book.","Pay by M-Pesa. Get a full visit record."))
+    
