@@ -1,12 +1,8 @@
 import subprocess, wave
 from tiktok import *
-from rhvoice_wrapper import TTS
-tts=TTS(threads=1,quiet=True)
+from kokoro_say import say as ksay
 def say(text,path):
-    open(path,"wb").write(tts.get(text,voice="slt",format_="wav"))
-    raw=path+".tmp.wav"; import os; os.replace(path,raw)
-    subprocess.run(["ffmpeg","-v","error","-y","-i",raw,"-ar","44100",path],check=True)
-    w=wave.open(path); d=w.getnframes()/w.getframerate(); w.close(); return d
+    return ksay(text,path,sid=1,speed=1.05)
 def ad_vo(name,hsrc,hcrop,hst,hook,segs,end,lines):
     """segs: (kind,a,b,cap,yoff,weight). Video timing follows the voiceover."""
     d1=say(lines[0],"vo/l1.wav"); d2=say(lines[1],"vo/l2.wav"); d3=say(lines[2],"vo/l3.wav")
@@ -45,19 +41,19 @@ ad_vo("simovet_ad1_farmers_licensed.mp4",V3,C3,0,"how do you know your vet is ac
     ("V",32.8,34.9,"verified vets near you, nearest first",170,1.0)],
    ("Book a KVB-verified vet. Pay by M-Pesa.","Every vet's licence is checked by a person."),
    ["How do you know your vet is really licensed?",
-    "On SimoVet, every vet's K V B licence is checked by a person. Find a verified vet near you, and pay by M-Pesa.",
+    "On Simo Vet, every vet's K V B licence is checked by a person. Find a verified vet near you, and pay by Em-Pesa.",
     "Visit simonetvetcare dot co dot ke."])
 ad_vo("simovet_ad2_vets_paid_first.mp4",V4,C4,3,"the farmer pays before you even see the request",
    [("V",4.0,5.0,"farmers pay by m-pesa when they book",120,0.8),
     ("S",8.9,0,"85% paid to your m-pesa after each confirmed visit",170,1.4)],
    ("Vets: free to join.","Set your own prices, hours and service area."),
    ["Vets, listen. The farmer pays before you even see the request.",
-    "Farmers pay by M-Pesa when they book. You keep eighty five percent, paid to your M-Pesa after each confirmed visit.",
+    "Farmers pay by Em-Pesa when they book. You keep eighty five percent, paid to your Em-Pesa after each confirmed visit.",
     "Free to join. simonetvetcare dot co dot ke."])
 ad_vo("simovet_ad3_farmers_prices.mp4",V3,C3,4,"vet prices shown before you book. finally.",
    [("V",39.5,44.8,"every vet card shows services + prices",170,1.0)],
    ("See each vet's services and prices before you book.","Pay by M-Pesa. Get a full visit record."),
    ["No more guessing vet prices.",
-    "On SimoVet, every vet card shows their services and prices before you book. Pay by M-Pesa, and get a full visit record.",
+    "On Simo Vet, every vet card shows their services and prices before you book. Pay by Em-Pesa, and get a full visit record.",
     "simonetvetcare dot co dot ke."])
-import os; tts.join(); os._exit(0)
+
